@@ -39,9 +39,47 @@ namespace Proje_OOP.Controllers
 			string cumle = "Merhaba bu bir core projesidir";
 			return cumle;
 		}
+		void MesajListesi(string p)
+		{
+			ViewBag.v = p;
+		}
+		void Kullanici(string kullaniciadi)
+		{
+			ViewBag.k = kullaniciadi;
+		}
+		int Topla(int s1,int s2)
+		{
+			int sonuc = s1 + s2;
+			return sonuc;
+		}
+		int Faktoriyel(int fak)
+		{
+			//kısacası faktöriyel hesaplama işlemi kac adet sayı gırılse o sayıların çarpımını alır
+			//6! --> 1*2*3*4
+			//1*1=1
+			//2*1=2
+			//3*2=6
+			//4*6=24
+			int f = 1;
+			for (int i = 1; i <= fak; i++)
+			{
+				f = f * i;
+			}
+			return f;
+		}
+		public IActionResult Index()
+		{
+			mesajlar();
+			MesajListesi("Parametere ismi:");
+			Kullanici("metin123");
+			ViewBag.t = Topla(20, 35);
+			return View();
+		}
 		public IActionResult Musteriler()
 		{
 			ViewBag.d = cumle();
+			Kullanici("meryem123");
+			ViewBag.faktor = Faktoriyel(6);
 			return View();
 		}
 		public IActionResult Urunler()
@@ -50,13 +88,10 @@ namespace Proje_OOP.Controllers
 			ViewBag.t = topla();
 			ViewBag.c = cevre();
 			ViewBag.f = factoriel();
+			Kullanici("halime123");
 			return View();
 		}
-		public IActionResult Index()
-		{
-			mesajlar();
-			return View();
-		}
+		
 		
 	}
 }
