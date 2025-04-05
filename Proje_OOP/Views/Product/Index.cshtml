@@ -14,6 +14,7 @@
         <th>Urun Adi</th>
         <th>Urun Fiyati</th>
         <th>Urun Stok</th>
+        <th>Sil</th>
     </tr>
      @foreach (var item in Model)/*veriler liste halinde alınıp sergileniyor*/
     {
@@ -22,7 +23,8 @@
             <td>@item.Name</td>
             <td>@item.Price</td>
             <td>@item.Stock</td>
+            <td><a href="/Product/DeleteProduct/@item.Id">Sil</a></td>
         </tr>
     }
 </table>
-<a href="#" class="btn btn-primary">Yeni Urun Girisi</a>
+<a href="/Product/AddProduct/" class="btn btn-primary">Yeni Urun Girisi</a>

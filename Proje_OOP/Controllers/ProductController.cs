@@ -20,15 +20,19 @@ namespace Proje_OOP.Controllers
 		}
 		/*httppost ile formdan gelen veriler bu ekleme metoduna gider*/
 		[HttpPost]
-		public IActionResult AddProduct(Product p)//ekleme metodu
+		public IActionResult AddProduct(Product p)//ekleme metoduna parametre eklemek sarttır
 		{
-			if (ModelState.IsValid)
-			{
-				context.Products.Add(p);//veritabanına ekle
-				context.SaveChanges();//değişiklikleri kaydet
-				return RedirectToAction("Index");
-			}
-			return View();
+			context.Add(p);//veritabanına ekle
+			context.SaveChanges();//değişiklikleri kaydet
+			return RedirectToAction("Index");
+		}
+		public IActionResult DeleteProduct(int id)//silme metodu
+		{
+			//veritabanından silinecek ürünü where ile parametredeki idsi esit olanı bulup silecek
+			var value = context.Products.Where(x => x.Id == id).FirstOrDefault();
+			context.Remove(value);//remove ile veritabanından buldugun degeri sil
+			context.SaveChanges();
+			return RedirectToAction("Index");
 		}
 	}
 }

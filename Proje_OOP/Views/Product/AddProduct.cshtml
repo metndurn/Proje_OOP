@@ -1,0 +1,19 @@
+﻿@model Proje_OOP.Entity.Product /*ekleme yapılırken sadece alınması gereken yol verılır*/
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/Shared/_CoreLayout.cshtml";
+}
+
+<h1>Urun Ekleme Sayfasi</h1>
+<form method="post">
+    @Html.Label("Urun Adi")
+    @Html.TextBoxFor(x=>x.Name, new { @class = "form-control"})
+    <br />
+    @Html.Label("Urun Fiyati")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.Label("Urun Stok Sayisi")
+    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Urun Ekle</button>
+</form>
