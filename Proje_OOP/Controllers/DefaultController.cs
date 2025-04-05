@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Proje_OOP.Ornekler;
 
 namespace Proje_OOP.Controllers
 {
@@ -91,7 +92,47 @@ namespace Proje_OOP.Controllers
 			Kullanici("halime123");
 			return View();
 		}
-		
+		public IActionResult City()
+		{
+			Sehirler sehirler = new Sehirler();// nesne oluşturma işlemi yapıldı
+
+
+			//proporty'leri kullanarak nesneye değer atama işlemi yapıldı
+			sehirler.Id = 1;
+			sehirler.Ad = "Kiev";
+			sehirler.Nufus = 15000000;
+			sehirler.Ulke = "Ukrayna";
+			sehirler.Renk1 = "Mavi";
+			sehirler.Renk2 = "Sari";
+
+
+			// nesne üzerinden viewbag'e değer atama işlemi yapıldı
+			ViewBag.s1 = sehirler.Id;
+			ViewBag.s2 = sehirler.Ad;
+			ViewBag.s3 = sehirler.Nufus;
+			ViewBag.s4 = sehirler.Ulke;
+			ViewBag.s5 = sehirler.Renk1;
+			ViewBag.s6 = sehirler.Renk2;
+			ViewBag.s7 = sehirler.Renk3;
+
+
+			sehirler.Id = 2;
+			sehirler.Ad = "Ankara";
+			sehirler.Nufus = 5000000;
+			sehirler.Ulke = "Türkiye";
+			sehirler.Renk1 = "Beyaz";
+			sehirler.Renk2 = "Kırmızı";
+
+
+			ViewBag.t1 = sehirler.Id;
+			ViewBag.t2 = sehirler.Ad;
+			ViewBag.t3 = sehirler.Nufus;
+			ViewBag.t4 = sehirler.Ulke;
+			ViewBag.t5 = sehirler.Renk1;
+			ViewBag.t6 = sehirler.Renk2;
+			ViewBag.t7 = sehirler.Renk3;
+			return View();
+		}
 		
 	}
 }

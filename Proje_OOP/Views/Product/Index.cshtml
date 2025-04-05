@@ -1,0 +1,28 @@
+﻿@using Proje_OOP.Entity @*verilerin cekılmesı ıcın entity gereklı*@
+@*verilerin liste mi?, ekleme mi?, oldugunu belirtip nereden alınacagı yazılmalıdır*@
+@model List<Product> 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_CoreLayout.cshtml";
+}
+
+<h1>Urun Sayfasi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Urun Adi</th>
+        <th>Urun Fiyati</th>
+        <th>Urun Stok</th>
+    </tr>
+     @foreach (var item in Model)/*veriler liste halinde alınıp sergileniyor*/
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Stock</td>
+        </tr>
+    }
+</table>
+<a href="#" class="btn btn-primary">Yeni Urun Girisi</a>
