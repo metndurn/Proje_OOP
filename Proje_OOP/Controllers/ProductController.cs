@@ -34,5 +34,21 @@ namespace Proje_OOP.Controllers
 			context.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		[HttpGet]//burada sayfa yuklendiğinde calısacak olan kısma verılerı gosterdık
+		public IActionResult UpdateProduct(int id)//güncelleme metodu
+		{
+			var value = context.Products.Where(x => x.Id == id).FirstOrDefault();//veritabanından güncellenecek ürünü bul
+			return View(value);
+		}
+		[HttpPost]//formdan gelen veriler bu güncelleme metoduna gider
+		public IActionResult UpdateProduct(Product p)//güncelleme metoduna parametre eklemek sarttır
+		{
+			var value = context.Products.Find(p.Id);//veritabanından güncellenecek ürünü bul
+			value.Name = p.Name;//güncellenen ürünün adını güncelle
+			value.Price = p.Price;//güncellenen ürünün fiyatını güncelle
+			value.Stock = p.Stock;//güncellenen ürünün stokunu güncelle
+			context.SaveChanges();//değişiklikleri kaydet
+			return RedirectToAction("Index");
+		}
 	}
 }

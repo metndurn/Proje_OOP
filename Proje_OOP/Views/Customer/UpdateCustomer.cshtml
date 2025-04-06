@@ -1,0 +1,19 @@
+﻿@model Proje_OOP.Entity.Customer
+@{
+    ViewData["Title"] = "UpdateCustomer";
+    Layout = "~/Views/Shared/_CoreLayout.cshtml";
+}
+
+<h1>Musteri Guncelle Sayfasi</h1>
+<form method="post">
+    @Html.Label("Musteri Id")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    <br />
+    @Html.Label("Musteri Adi")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("Musteri Sehri")
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Guncelle</button>
+</form>

@@ -15,6 +15,7 @@
         <th>Urun Fiyati</th>
         <th>Urun Stok</th>
         <th>Sil</th>
+        <th>Guncelle</th>
     </tr>
      @foreach (var item in Model)/*veriler liste halinde alınıp sergileniyor*/
     {
@@ -23,7 +24,8 @@
             <td>@item.Name</td>
             <td>@item.Price</td>
             <td>@item.Stock</td>
-            <td><a href="/Product/DeleteProduct/@item.Id">Sil</a></td>
+            <td><a href="/Product/DeleteProduct/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Product/UpdateProduct/@item.Id" class="btn btn-success">Guncelle</a></td>
         </tr>
     }
 </table>
